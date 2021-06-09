@@ -1,6 +1,6 @@
-Uma Aplicação de Postagem para aprendizados em React
+# Uma Aplicação de Postagem para aprendizados em React
 
-#Conteúdo da Aplicação
+# Conteúdo da Aplicação
 - [ ] Autenticação de usuário
 - [ ] Recuperação de senha por meio de envio de e-mail
 - [ ] Cadastro de usuário
