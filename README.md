@@ -1,4 +1,4 @@
-Uma Aplicação de Postagem para aprendizados em React
+# Uma Aplicação de Postagem para aprendizados em React
 
 # Conteúdo da Aplicação
 - [ ] Autenticação de usuário
