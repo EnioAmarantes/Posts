@@ -3,6 +3,7 @@ import "./login.css";
 
 import firebase from "../../config/firebase";
 import "firebase/auth";
+import "../../img/react-icon.jpg";
 
 function Login() {
 
@@ -24,8 +25,8 @@ function Login() {
         <div className="login-content d-flex align-items-center">
             <form className="form-signin mx-auto">
                 <div className="text-center mb-4">
-                    <img className="mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"/>
-                    <h1 className="h3 mb-3 fw-normal text-white font-weitght-bold">Please sign in</h1>
+                    <img className="mb-4" src="https://www.w3schools.com/images/lamp.jpg" alt="" width="72" height="57"/>
+                    <h1 className="h3 mb-3 fw-normal text-white font-weitght-bold">Login</h1>
                 </div>
 
                 <input onChange={(e) => setEmail(e.target.value)} type="email" className="form-control my-2" id="floatingInput" placeholder="Email"/>
