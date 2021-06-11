@@ -1,5 +1,8 @@
 import React, {useState} from "react";
 import "./login.css";
+import {Link, Redirect} from "react-router-dom";
+
+import { useSelector, useDispatch } from "react-redux";
 
 import firebase from "../../config/firebase";
 import "firebase/auth";
@@ -11,10 +14,13 @@ function Login() {
     const [senha, setSenha] = useState();
     const [msgType, setMsgType] = useState();
 
+    const dispatch = useDispatch();
+
     function autenticar(){
         firebase.auth().signInWithEmailAndPassword(email, senha)
             .then(res => {
                 setMsgType("ok");
+                dispatch({type:'LOGIN', userEmail: email});
             })
             .catch(err => {
                 setMsgType("erro");
@@ -23,6 +29,9 @@ function Login() {
 
     return (
         <div className="login-content d-flex align-items-center">
+            {
+                useSelector(state => state.userLoged) > 0 ? <Redirect to="/" /> : null
+            }
             <form className="form-signin mx-auto">
                 <div className="text-center mb-4">
                     <img className="mb-4" src="https://www.w3schools.com/images/lamp.jpg" alt="" width="72" height="57"/>
@@ -42,7 +51,7 @@ function Login() {
                 <div className="option-login mt-2">
                     <a href="#" className="mx-2">Recuperar Senha</a>
                     <span>&#9883;</span>
-                    <a href="#" className="mx-2">Quero me cadastrar</a>
+                    <Link to="newuser" className="mx-2">Quero me cadastrar</Link>
                 </div>
             </form>
         </div>

@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import firebase from "../../config/firebase";
 import "firebase/auth";
 import "./newUser.css";
+import NavBar from "../../components/navbar";
 
 function NewUser(){
 
@@ -47,29 +48,32 @@ function NewUser(){
     }
 
     return(
-        <div className="form-cadastro">
-            <form className="text-center form-login mx-auto mt-9">
-                <h1 className="h3 mb-3 text-black font-weight-bold">Cadastro</h1>
+        <>
+        <NavBar />
+            <div className="form-cadastro">
+                <form className="text-center form-login mx-auto mt-9">
+                    <h1 className="h3 mb-3 text-black font-weight-bold">Cadastro</h1>
 
-                <input onChange={(e) => setEmail(e.target.value)} type="email" className="form-control my-2" placeholder="E-mail" />
-                <input onChange={(e) => setSenha(e.target.value)} type="password" className="form-control my-2" placeholder="Senha" />
+                    <input onChange={(e) => setEmail(e.target.value)} type="email" className="form-control my-2" placeholder="E-mail" />
+                    <input onChange={(e) => setSenha(e.target.value)} type="password" className="form-control my-2" placeholder="Senha" />
 
-                {
-                    carregando ? 
-                    <div className="spinner-border text-secondary" role="status">
-                        <span class="sr-only"></span>
+                    {
+                        carregando ? 
+                        <div className="spinner-border text-secondary" role="status">
+                            <span class="sr-only"></span>
+                        </div>
+                        : <button onClick={cadastrar} type="button" className="btn btn-lg mt-3 mb-5 btn-cadastro">Cadastrar</button>
+                    }
+
+
+                    <div className="text-black text-center my-5">
+                        {msgType == "ok" && <span><strong>Uau!</strong> Usuário cadastrado com Sucesso. &#128521;</span>}
+                        {msgType == "erro" && <span><strong>Ah!</strong> {msg} &#128533;</span>}                         
                     </div>
-                    : <button onClick={cadastrar} type="button" className="btn btn-lg mt-3 mb-5 btn-cadastro">Cadastrar</button>
-                }
 
-
-                <div className="text-black text-center my-5">
-                    {msgType == "ok" && <span><strong>Uau!</strong> Usuário cadastrado com Sucesso. &#128521;</span>}
-                    {msgType == "erro" && <span><strong>Ah!</strong> {msg} &#128533;</span>}                         
-                </div>
-
-            </form>
-        </div>
+                </form>
+            </div>
+        </>
     );
 }
 
