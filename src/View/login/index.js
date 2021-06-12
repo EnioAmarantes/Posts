@@ -6,7 +6,6 @@ import { useSelector, useDispatch } from "react-redux";
 
 import firebase from "../../config/firebase";
 import "firebase/auth";
-import "../../img/react-icon.jpg";
 
 function Login() {
 
@@ -20,7 +19,9 @@ function Login() {
         firebase.auth().signInWithEmailAndPassword(email, senha)
             .then(res => {
                 setMsgType("ok");
-                dispatch({type:'LOGIN', userEmail: email});
+                setTimeout(() => {
+                    dispatch({type:'LOGIN', userEmail: email});
+                }, 500)
             })
             .catch(err => {
                 setMsgType("erro");
@@ -32,9 +33,10 @@ function Login() {
             {
                 useSelector(state => state.userLoged) > 0 ? <Redirect to="/" /> : null
             }
+
             <form className="form-signin mx-auto">
                 <div className="text-center mb-4">
-                    <img className="mb-4" src="https://www.w3schools.com/images/lamp.jpg" alt="" width="72" height="57"/>
+                    <i className="fas fa-book-open text-white fa-7x mb-5"></i>
                     <h1 className="h3 mb-3 fw-normal text-white font-weitght-bold">Login</h1>
                 </div>
 
@@ -49,7 +51,7 @@ function Login() {
                 </div>
 
                 <div className="option-login mt-2">
-                    <a href="#" className="mx-2">Recuperar Senha</a>
+                    <Link to="lostpassword" className="mx-2">Recuperar Senha</Link>
                     <span>&#9883;</span>
                     <Link to="newuser" className="mx-2">Quero me cadastrar</Link>
                 </div>
