@@ -8,6 +8,7 @@ import Login from "./View/login";
 import NewUser from "./View/newUser";
 import Home from "./View/home";
 import LostPassword from "./View/lostPassword";
+import NewPost from "./View/newPost";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route exact path="/login" component={Login} />
         <Route exact path="/newuser" component={NewUser} />
         <Route exact path="/lostpassword" component={LostPassword} />
+        <Route exact path="/newpost" component={NewPost} />
       </Router>
     </Provider>
   );

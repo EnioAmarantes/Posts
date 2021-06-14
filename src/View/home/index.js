@@ -4,7 +4,6 @@ import {Link} from "react-router-dom";
 import { useSelector } from 'react-redux';
 
 import NavBar from "../../components/navbar";
-import { STATEMENT_OR_BLOCK_KEYS } from "@babel/types";
 
 function Home() {
     return(
