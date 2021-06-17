@@ -21,7 +21,7 @@ function NavBar(){
                         useSelector(state => state.userLoged) > 0 ?
                             <>
                             <li className="nav-item active">
-                                <Link className="nav-link" to="#">Meus Posts</Link>
+                                <Link className="nav-link" to="posts/meus">Meus Posts</Link>
                             </li>
 
                             <li className="nav-item active">

@@ -14,8 +14,9 @@ function App() {
   return (
     <Provider store={store}>
       <Router>
-        <Route exact path="/" component={Home} />
         <Route exact path="/login" component={Login} />
+        <Route exact path="/" component={Home} />
+        <Route path="/posts/:parametro" component={Home} />
         <Route exact path="/newuser" component={NewUser} />
         <Route exact path="/lostpassword" component={LostPassword} />
         <Route exact path="/newpost" component={NewPost} />

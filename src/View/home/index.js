@@ -7,24 +7,42 @@ import NavBar from "../../components/navbar";
 import PostCard from "../../components/postcard";
 import firebase from "../../config/firebase";
 
-function Home() {
+function Home({match}) {
 
     const [posts, setPosts] = useState([]);
     const [pesquisa, setPesquisa] = useState('');
+    const usuarioEmail = useSelector(state => state.userEmail);
+
     var listaPosts = [];
 
     useEffect(() => {
-        firebase.firestore().collection('posts').get().then(async (res) => {
-            await res.docs.forEach( doc => {
-                if(doc.data().titulo.indexOf(pesquisa) >= 0) {
-                    listaPosts.push({
-                        id: doc.id,
-                        ...doc.data()
-                    })
-                }
+
+        if(match.params.parametro) {
+            firebase.firestore().collection('posts').where('usuario','==',usuarioEmail).get().then(async (res) => {
+                await res.docs.forEach( doc => {
+                    if(doc.data().titulo.indexOf(pesquisa) >= 0) {
+                        listaPosts.push({
+                            id: doc.id,
+                            ...doc.data()
+                        })
+                    }
+                })
+                setPosts(listaPosts);
             })
-            setPosts(listaPosts);
-        })
+        }
+        else {
+            firebase.firestore().collection('posts').get().then(async (res) => {
+                await res.docs.forEach( doc => {
+                    if(doc.data().titulo.indexOf(pesquisa) >= 0) {
+                        listaPosts.push({
+                            id: doc.id,
+                            ...doc.data()
+                        })
+                    }
+                })
+                setPosts(listaPosts);
+            })
+        }
     });
 
     return(
@@ -33,6 +51,7 @@ function Home() {
        {/* <h1>{useSelector(state => state.userEmail)}</h1> */}
 
        <div className="row p-3">
+           <h2 className="mx-auto p-3">Posts Publicados</h2>
            <input type="text" onChange={(e) => setPesquisa(e.target.value) } className="form-control text-center" placeholder="Pesquisar posts por título...."></input>
        </div>
 
