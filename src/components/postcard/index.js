@@ -4,7 +4,7 @@ import "./postcard.css";
 
 import firebase from "../../config/firebase";
 
-function PostCard({id, title, description, view, imagem}){
+function PostCard({id, titulo, descricao, visualizacoes, imagem}){
 
     const [urlImagem, setUrlImagem] = useState();
 
@@ -12,22 +12,22 @@ function PostCard({id, title, description, view, imagem}){
         firebase.storage().ref(`imagens/${imagem}`).getDownloadURL().then( url => {
             setUrlImagem(url);
         })
-    })
+    }, [urlImagem]);
 
     return(
         <div className="col-md-3 col-sm-12">
             <img id="imgCard" src={urlImagem} className="card-img-top" />
 
             <div className="card-body">
-                <h5>{ title }</h5>
-                <p className="card-text text-justify">{description}</p>
+                <h5>{ titulo }</h5>
+                <p className="card-text text-justify">{descricao}</p>
 
                 <div className="row rodape-card d-flex align-items-center">
                     <div className="col-6">
                         <Link to={`/postdetalhes/${id}`} className="btn btn-sm btn-detalhes">+ detalhes</Link>
                     </div>
                     <div className="col-6">
-                        <i class="fas fa-eye"></i><span>{view}</span>
+                        <i class="fas fa-eye"></i><span>{visualizacoes}</span>
                     </div>
                 </div>
             </div>

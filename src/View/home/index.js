@@ -10,15 +10,18 @@ import firebase from "../../config/firebase";
 function Home() {
 
     const [posts, setPosts] = useState([]);
+    const [pesquisa, setPesquisa] = useState('');
     var listaPosts = [];
 
     useEffect(() => {
         firebase.firestore().collection('posts').get().then(async (res) => {
             await res.docs.forEach( doc => {
-                listaPosts.push({
-                    id: doc.id,
-                    ...doc.data()
-                })
+                if(doc.data().titulo.indexOf(pesquisa) >= 0) {
+                    listaPosts.push({
+                        id: doc.id,
+                        ...doc.data()
+                    })
+                }
             })
             setPosts(listaPosts);
         })
@@ -28,10 +31,15 @@ function Home() {
         <>
        <NavBar />
        {/* <h1>{useSelector(state => state.userEmail)}</h1> */}
+
+       <div className="row p-3">
+           <input type="text" onChange={(e) => setPesquisa(e.target.value) } className="form-control text-center" placeholder="Pesquisar posts por título...."></input>
+       </div>
+
        <div className="row p-2">
            {
                posts.map( item => 
-                <PostCard key={item.id} id={item.id} title={item.titulo} description={item.descricao} view={item.visualizacoes} imagem={item.image} />
+                <PostCard key={item.id} id={item.id} titulo={item.titulo} descricao={item.descricao} visualizacoes={item.visualizacoes} imagem={item.image} />
                )
            }
        </div>
