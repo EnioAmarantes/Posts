@@ -21,11 +21,11 @@ function NavBar(){
                         useSelector(state => state.userLoged) > 0 ?
                             <>
                             <li className="nav-item active">
-                                <Link className="nav-link" to="posts/meus">Meus Posts</Link>
+                                <Link className="nav-link" to="/posts/meus">Meus Posts</Link>
                             </li>
 
                             <li className="nav-item active">
-                                <Link className="nav-link" to="newpost">Publicar Post </Link>
+                                <Link className="nav-link" to="/newpost">Publicar Post </Link>
                             </li>
 
                             <li className="nav-item active">
@@ -39,11 +39,11 @@ function NavBar(){
                             </li>
 
                             <li className="nav-item active">
-                                <Link className="nav-link" to="newuser">Cadastrar </Link>
+                                <Link className="nav-link" to="/newuser">Cadastrar </Link>
                             </li>
 
                             <li className="nav-item active">
-                                <Link className="nav-link" to="login">Login </Link>
+                                <Link className="nav-link" to="/login">Login </Link>
                             </li>
                             </>
                     }

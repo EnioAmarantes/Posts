@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import NavBar from "../../components/navbar";
-import {Link} from "react-router-dom";
 import firebase from "../../config/firebase";
 
 import "./lostPassword.css";

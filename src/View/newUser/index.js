@@ -67,8 +67,8 @@ function NewUser(){
 
 
                     <div className="text-black text-center my-5">
-                        {msgType == "ok" && <span><strong>Uau!</strong> Usuário cadastrado com Sucesso. &#128521;</span>}
-                        {msgType == "erro" && <span><strong>Ah!</strong> {msg} &#128533;</span>}                         
+                        {msgType === "ok" && <span><strong>Uau!</strong> Usuário cadastrado com Sucesso. &#128521;</span>}
+                        {msgType === "erro" && <span><strong>Ah!</strong> {msg} &#128533;</span>}                         
                     </div>
 
                 </form>

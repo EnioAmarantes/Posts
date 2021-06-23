@@ -46,8 +46,8 @@ function Login() {
 
 
                 <div className="text-white text-center my-5">
-                    {msgType == "ok" && <span><strong>Uau!</strong> Você se conectou no sistema! &#128521;</span>}
-                    {msgType == "erro" && <span><strong>Ah!</strong> Por favor, verifique se o seu e-mail e senha estão corretos! &#128533;</span>}                         
+                    {msgType === "ok" && <span><strong>Uau!</strong> Você se conectou no sistema! &#128521;</span>}
+                    {msgType === "erro" && <span><strong>Ah!</strong> Por favor, verifique se o seu e-mail e senha estão corretos! &#128533;</span>}                         
                 </div>
 
                 <div className="option-login mt-2">

@@ -14,11 +14,12 @@
 }
 
 .card-text {
-    max-height: 150px;
+    max-height: 100px;
+    min-height: 100px;
     overflow: hidden;
 }
 
 .img-cartao {
-    max-height: 200px;
+    max-height: 100px;
     min-width: 100%;
 }

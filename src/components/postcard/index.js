@@ -24,7 +24,7 @@ function PostCard({id, titulo, descricao, visualizacoes, imagem}){
 
                 <div className="row rodape-card d-flex align-items-center">
                     <div className="col-6">
-                        <Link to={`/postdetalhes/${id}`} className="btn btn-sm btn-detalhes">+ detalhes</Link>
+                        <Link to={`/postdetails/${id}`} className="btn btn-sm btn-detalhes">+ detalhes</Link>
                     </div>
                     <div className="col-6">
                         <i class="fas fa-eye"></i><span>{visualizacoes}</span>
